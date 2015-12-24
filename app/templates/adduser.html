@@ -1,0 +1,71 @@
+<form (ngSubmit)="onSubmit()">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Add / Modify User</div>
+                <div class="panel-body">
+                    <fieldset>
+                        <div class="row">
+                            <div class="col-sm-12 form-group">
+                                <label class="col-sm-4 control-label input-sm">Full Name:</label>
+                                <div class="col-sm-6">
+                                    <input
+                                            type='text'
+                                            class='form-control'
+                                            [(ngModel)]="user.fullname"
+                                            placeholder='Full Name'
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 form-group">
+                                <label class="col-sm-4 control-label input-sm">Email:</label>
+                                <div class="col-sm-6">
+                                    <input
+                                            type='email'
+                                            class='form-control'
+                                            [(ngModel)]="user.email"
+                                            placeholder='Email'
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 form-group">
+                                <label class="col-sm-4 control-label input-sm">Age:</label>
+                                <div class="col-sm-6">
+                                    <input
+                                            type='number'
+                                            class='form-control'
+                                            [(ngModel)]="user.age"
+                                            placeholder='Age'
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 form-group">
+                                <label class="col-sm-4 control-label input-sm">Address:</label>
+                                <div class="col-sm-6">
+                                    <input
+                                            type='text'
+                                            class='form-control'
+                                            placeholder='Address'
+                                            [(ngModel)]="user.address"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12">
+                <button class="btn btn-primary" type="submit">Save</button>
+                <a [routerLink]="['User']">Reset</a>
+            </div>
+        </div>
+    </div>
+</form>

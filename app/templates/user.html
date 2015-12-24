@@ -1,0 +1,47 @@
+<div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Users</div>
+                <div class="panelBody">
+                    <table class="table tableBordered tableStriped">
+                        <thead>
+                        <tr>
+                            <th><p>Name</p></th>
+                            <th><p>Age</p></th>
+                            <th><p>Email</p></th>
+                            <th><p>Address</p></th>
+                            <th><p>Action</p></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="#user of users">
+                            <td>
+                                <a [routerLink]="['AddUser',{id:user.id}]">{{user.fullname}}</a>
+                            </td>
+                            <td>
+                                {{user.age}}
+                            </td>
+                            <td>
+                                {{user.email}}
+                            </td>
+                            <td>
+                                {{user.address}}
+                            </td>
+                            <td>
+                                <button (click)="delete(user)" class='btn btn-link'>Delete
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <a  class="btn btn-primary"  [routerLink]="['AddUser',{id:null}]">Add</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
