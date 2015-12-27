@@ -13,7 +13,7 @@
                                             type='text'
                                             class='form-control'
                                             [(ngModel)]="user.fullname"
-                                            placeholder='Full Name'
+                                            placeholder='Full Name' required
                                     />
                                 </div>
                             </div>
@@ -26,7 +26,7 @@
                                             type='email'
                                             class='form-control'
                                             [(ngModel)]="user.email"
-                                            placeholder='Email'
+                                            placeholder='Email' required
                                     />
                                 </div>
                             </div>
@@ -39,7 +39,7 @@
                                             type='number'
                                             class='form-control'
                                             [(ngModel)]="user.age"
-                                            placeholder='Age'
+                                            placeholder='Age' required
                                     />
                                 </div>
                             </div>
@@ -52,7 +52,7 @@
                                             type='text'
                                             class='form-control'
                                             placeholder='Address'
-                                            [(ngModel)]="user.address"
+                                            [(ngModel)]="user.address" required
                                     />
                                 </div>
                             </div>

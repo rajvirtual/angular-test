@@ -13,7 +13,7 @@
             </i>
             </span>
                 <input id="login-username" type="text" class="form-control"
-                       [(ngModel)]="model.username"
+                       [(ngModel)]="model.username" required
                        name="username" placeholder="username or email" />
             </div>
             <div style="margin-bottom: 25px" class="input-group">
@@ -21,7 +21,7 @@
             <i class="glyphicon glyphicon-lock">
             </i>
             </span>
-                <input id="login-password" type="password"
+                <input id="login-password" type="password" required
                        [(ngModel)]="model.password" class="form-control" name="password" placeholder="password" />
             </div>
             <div style="margin-top:10px" class="form-group">

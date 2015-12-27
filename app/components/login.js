@@ -25,7 +25,7 @@ System.register(['angular2/core', '../models/login', 'angular2/router'], functio
             Login = (function () {
                 function Login(_router) {
                     this._router = _router;
-                    this.model = new login_1.LoginItem('', '');
+                    this.model = new login_1.LoginItem(null, null);
                 }
                 Login.prototype.onSubmit = function () {
                     if (this.model.username == 'testuser' && this.model.password == 'testuser') {

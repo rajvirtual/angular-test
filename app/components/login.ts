@@ -12,7 +12,7 @@ export class Login {
 
     }
 
-    model = new LoginItem('', '');
+    model = new LoginItem(null, null);
 
     onSubmit() {
         if (this.model.username == 'testuser' && this.model.password == 'testuser') {
