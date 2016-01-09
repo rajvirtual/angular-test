@@ -1,4 +1,4 @@
-# angular-test
+# Angular 2.0 Example
 Angular 2.0 example application with routing, http calls, unit tests, and Parse.com CRUD Integration
 
 npm install
