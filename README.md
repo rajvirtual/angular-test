@@ -8,9 +8,9 @@ FullName,Age,Email,Address
 
 Update Parse Keys in /app/Constants/constants.ts
 
-username:testuser , password:testuser
-
 npm Start
+
+username:testuser , password:testuser
 
 open Browser  localhost://3000
 
