@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', "../services/userService", 'angular2/http'], function(exports_1) {
+System.register(['angular2/core', 'angular2/router', "../services/userService", 'angular2/http', 'angular2/common'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(['angular2/core', 'angular2/router', "../services/userService", 
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, userService_1, http_1;
+    var core_1, router_1, userService_1, http_1, common_1;
     var User;
     return {
         setters:[
@@ -23,12 +23,16 @@ System.register(['angular2/core', 'angular2/router', "../services/userService", 
             },
             function (http_1_1) {
                 http_1 = http_1_1;
+            },
+            function (common_1_1) {
+                common_1 = common_1_1;
             }],
         execute: function() {
             User = (function () {
                 function User(userService) {
                     this.userService = userService;
                     this.users = [];
+                    console.log('user constructor');
                 }
                 User.prototype.ngOnInit = function () {
                     this.refreshUsers();
@@ -47,7 +51,7 @@ System.register(['angular2/core', 'angular2/router', "../services/userService", 
                         selector: 'user',
                         templateUrl: './app/templates/user.html',
                         providers: [http_1.HTTP_PROVIDERS],
-                        directives: [router_1.ROUTER_DIRECTIVES]
+                        directives: [router_1.ROUTER_DIRECTIVES, common_1.CORE_DIRECTIVES]
                     }), 
                     __metadata('design:paramtypes', [userService_1.UserService])
                 ], User);

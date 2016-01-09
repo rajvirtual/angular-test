@@ -4,20 +4,23 @@ import { Http } from 'angular2/http';
 import { Inject } from 'angular2/core'
 import {Headers} from 'angular2/http';
 import * as constants from '../constants/constants';
-let _users:UserItem[] = [];
-
-let headers:Headers = new Headers();
 
 @Injectable()
+@Inject(Http)
 export class UserService {
-    constructor(public http:Http) {
-        headers.append('X-Parse-Application-Id', constants.AppId);
-        headers.append('X-Parse-REST-API-Key', constants.AppKey);
+    _users:UserItem[] = [];
+    headers:Headers = new Headers();
+    private http:Http;
+
+    constructor(http:Http) {
+        this.http = http;
+        this.headers.append('X-Parse-Application-Id', constants.AppId);
+        this.headers.append('X-Parse-REST-API-Key', constants.AppKey);
     }
 
     getUsers() {
         return this.http.get('https://api.parse.com/1/classes/Persons', {
-            headers: headers
+            headers: this.headers
         }).map((response:any)=> {
                 return response.json();
             })
@@ -29,7 +32,7 @@ export class UserService {
                             user.Email, user.Address, user.Age));
                     });
                 }
-                _users = _users.concat(result);
+                this._users = this._users.concat(result);
                 return result;
             });
     }
@@ -44,21 +47,21 @@ export class UserService {
         let data = JSON.stringify(userData);
         if (!item.id) {
             return this.http.post('https://api.parse.com/1/classes/Persons', data, {
-                headers: headers
+                headers: this.headers
             });
         }
         return this.http.put('https://api.parse.com/1/classes/Persons/' + item.id, data, {
-            headers: headers
+            headers: this.headers
         });
     }
 
     getUser(id) {
-        return _users.find(p=>p.id == id);
+        return this._users.find(p=>p.id == id);
     }
 
     deleteUser(item) {
         return this.http.delete('https://api.parse.com/1/classes/Persons/' + item.id, {
-            headers: headers
+            headers: this.headers
         });
     }
 }

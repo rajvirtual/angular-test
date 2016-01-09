@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>Jasmine Tests</title>
+    <link rel="stylesheet" href="node_modules/jasmine-core/lib/jasmine-core/jasmine.css">
+    <script src="node_modules/jasmine-core/lib/jasmine-core/jasmine.js"></script>
+    <script src="node_modules/jasmine-core/lib/jasmine-core/jasmine-html.js"></script>
+    <script src="node_modules/jasmine-core/lib/jasmine-core/boot.js"></script>
+</head>
+<body>
+<script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+<script src="node_modules/es6-shim/es6-shim.js"></script>
+
+<script src="node_modules/systemjs/dist/system.src.js"></script>
+<script src="node_modules/rxjs/bundles/Rx.js"></script>
+<script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+<script src="node_modules/angular2/bundles/testing.dev.js"></script>
+<script src="node_modules/angular2/bundles/http.dev.js"></script>
+<script src="node_modules/angular2/bundles/router.dev.js"></script>
+
+<script>
+    // #2. Configure systemjs to use the .js extension
+    //     for imports from the app folder
+    System.config({
+        packages: {
+            'app': {defaultExtension: 'js'},
+        }
+    });
+    Promise.all([
+        System.import('app/models/login.spec'),
+        System.import('app/components/user.spec')
+    ]).then(window.onload)
+            .catch(console.error.bind(console));
+
+    System.import('angular2/src/platform/browser/browser_adapter').then(function (browser_adapter) {
+        browser_adapter.BrowserDomAdapter.makeCurrent();
+    });
+</script>
+</body>
+</html>
