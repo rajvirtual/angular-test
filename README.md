@@ -14,7 +14,7 @@ username:testuser , password:testuser
 
 open Browser  localhost://3000
 
-Unit Tests.
+To run unit Tests.
 
 npm test
 
