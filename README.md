@@ -18,3 +18,6 @@ To run unit tests.
 
 npm test
 
+Demo
+
+https://angular2-test.herokuapp.com
